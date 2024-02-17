@@ -26,5 +26,13 @@ describe("filter", () => {
       const filteredArray = filter(callbackFunction, arrayToFilter);
       expect(filteredArray).toBeInstanceOf(Array);
     });
+    it("returns a new array", () => {
+      function callbackFunction(item) {
+        return item > 2;
+      }
+      const arrayToFilter = [];
+      const filteredArray = filter(callbackFunction, arrayToFilter);
+      expect(filteredArray).not.toBe(arrayToFilter);
+    });
   });
 });
