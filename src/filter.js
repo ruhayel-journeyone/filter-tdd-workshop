@@ -1,7 +1,9 @@
 function filter(callbackFunction, array) {
   let filteredArray = [];
   for (let index = 0; index < array.length; index++) {
-    callbackFunction(array[index]);
+    if (callbackFunction(array[index])) {
+      filteredArray.push(array[index]);
+    }
   }
   return filteredArray;
 }
