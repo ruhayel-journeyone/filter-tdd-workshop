@@ -20,5 +20,11 @@ describe("filter", () => {
       expect(callbackFunction).toHaveBeenNthCalledWith(1, 1);
       expect(callbackFunction).toHaveBeenNthCalledWith(2, 4);
     });
+    it("returns an array", () => {
+      function callbackFunction(item) {}
+      const arrayToFilter = [];
+      const filteredArray = filter(callbackFunction, arrayToFilter);
+      expect(filteredArray).toBeInstanceOf(Array);
+    });
   });
 });
