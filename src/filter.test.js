@@ -13,5 +13,12 @@ describe("filter", () => {
         numberOfItemsInArrayToFilter
       );
     });
+    it("invokes the callback function passing it an item from the array as a paramater", () => {
+      const callbackFunction = jest.fn();
+      const arrayToFilter = [1, 4];
+      filter(callbackFunction, arrayToFilter);
+      expect(callbackFunction).toHaveBeenNthCalledWith(1, 1);
+      expect(callbackFunction).toHaveBeenNthCalledWith(2, 4);
+    });
   });
 });
